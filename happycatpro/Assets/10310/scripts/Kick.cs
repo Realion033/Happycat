@@ -9,7 +9,6 @@ public class Kick : MonoBehaviour
     public GameObject ball;
     Rigidbody2D rbBall;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -19,20 +18,16 @@ public class Kick : MonoBehaviour
         this.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionStay2D(Collision2D collision)
     {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.tag == "Ball")
+        if (Input.GetKeyDown(KeyCode.K))
         {
+            if (collision.gameObject.tag == "Ball")
+            {
 
-            Vector2 pos = (transform.position - collision.gameObject.transform.position).normalized;
-            rbBall.AddForce(-pos * force, ForceMode2D.Impulse);
+                Vector2 pos = (transform.position - collision.gameObject.transform.position).normalized;
+                rbBall.AddForce(-pos * force, ForceMode2D.Impulse);
+            }
         }
     }
 }
