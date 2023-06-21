@@ -15,4 +15,20 @@ public class Button1 : MonoBehaviour
     {
         SceneManager.LoadScene("Setting");
     }
+
+    public void MainScreen()
+    {
+        SceneManager.LoadScene("1_StartGame");
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("2_GameScene");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("게임 종료");
+    }
 }
