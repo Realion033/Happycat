@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PSPS : MonoBehaviour
 {
     bool isGround;
     Rigidbody2D rigid;
@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Jump();
-        Move();
+        Jumpp();
+        Movep();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -26,26 +26,21 @@ public class PlayerController : MonoBehaviour
             isGround = true;
         }
     }
-    void Jump()
+    void Jumpp()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
-        {
-            rigid.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-            isGround = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.W) && isGround == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGround == true)
         {
             rigid.AddForce(Vector2.up * force, ForceMode2D.Impulse);
             isGround = false;
         }
     }
-    void Move()
+    void Movep()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }

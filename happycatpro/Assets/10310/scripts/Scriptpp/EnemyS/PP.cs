@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerKick : MonoBehaviour
+public class PP : MonoBehaviour
 {
     Animator anime;
     public float shootForce = 100f;
@@ -29,7 +29,7 @@ public class PlayerKick : MonoBehaviour
 
     void Kick()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             anime.SetBool("isKick", true);
             isKick = true;
@@ -37,9 +37,10 @@ public class PlayerKick : MonoBehaviour
     }
     void LawShoot()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
-            
+            anime.SetBool("isKick", true);
+            isLawKick = true;
         }
     }
 
